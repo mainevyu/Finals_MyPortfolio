@@ -1,0 +1,100 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #f5f3ef, #ffffff);
+  padding-top: 80px;
+}
+
+.section {
+  padding: 100px 60px;
+  scroll-margin-top: 80px;
+}
+
+.header h1 {
+  font-weight: 700;
+  color: #0b101a;
+  letter-spacing: 1px;
+}
+
+.about-card {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  width: 100%;
+  max-width: 1100px;
+  margin: 40px auto;
+
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.profile-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #4a301c;
+}
+
+.about-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+.project-card {
+  border-radius: 18px;
+  border: none;
+  padding: 25px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+}
+
+.project-card::after {
+  content: "";
+  width: 40px;
+  height: 4px;
+  background: #4a301c;
+  display: block;
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.btn-navy {
+  background: #0b101a;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.btn-navy:hover {
+  background: #4a301c;
+}
+
+.contact-box {
+  max-width: 600px;
+}
+
+.navbar {
+  background: #0b101a !important;
+}
+
+.navbar a {
+  color: #ddd !important;
+}
+
+.navbar a:hover {
+  color: #4a301c !important;
+}
