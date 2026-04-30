@@ -5,7 +5,7 @@ function Project() {
     {
       title: "Student Services Portal",
       desc: "React + Typescript",
-      link: "https://mainevyu.github.io/mg_lab5_dagusen"
+      link: "https://mainevyu.github.io/MG_LAB5_Dagusen/"
     },
     {
       title: "Feedback App",
@@ -15,7 +15,7 @@ function Project() {
     {
       title: "Book Request Form",
       desc: "Controlled and Uncontrolled",
-      link: "https://github.com/yourusername/portfolio"
+      link: "https://mainevyu.github.io/MG_LAB6_Dagusen/"
     }
   ];
 
@@ -25,6 +25,7 @@ function Project() {
 
         <div className="header text-center">
           <h1>Projects</h1>
+          <p>Here are some of the projects I’ve built, showcasing my skills in programming.</p>
         </div>
 
         <Row className="mt-4">
@@ -36,10 +37,10 @@ function Project() {
                   <Card.Title>{p.title}</Card.Title>
                   <Card.Text>{p.desc}</Card.Text>
 
-                  <Button
+                  <Button 
                     href={p.link}
                     target="_blank"
-                    className="btn-navy w-100"
+                    className="btn btn-dark w-100"
                   >
                     View Project
                   </Button>
