@@ -1,8 +1,8 @@
-function Footer() {
+function Footer({ onAdminAccess }: { onAdminAccess: () => void }) {
   return (
     <footer className="footer">
-      <p>
-        © {new Date().getFullYear()} Charmaine Dagusen. All rights reserved.
+      <p onClick={onAdminAccess} style={{ cursor: "pointer" }}>
+        © 2025 Charmaine Dagusen
       </p>
     </footer>
   );
