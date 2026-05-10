@@ -60,7 +60,6 @@ function Admin({ onBack }: Props) {
     onBack();
   };
 
-  // --- LOGIN VIEW ---
   if (!authorized) {
     return (
       <div className="section-fit">
@@ -81,11 +80,9 @@ function Admin({ onBack }: Props) {
     );
   }
 
-  // --- DASHBOARD VIEW ---
   return (
     <div className="dashboard-container">
       <div className="container">
-        {/* Top Navigation */}
         <div className="d-flex justify-content-between align-items-center mb-5">
           <button onClick={handleBack} className="btn-back">
             Back to Home
