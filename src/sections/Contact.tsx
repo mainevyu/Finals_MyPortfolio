@@ -2,7 +2,6 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Container, Form, Button } from "react-bootstrap";
 
-
 type FormData = {
     name: string;
     email: string;
@@ -19,7 +18,6 @@ export default function Contact() {
     const [loading, setLoading] = useState(false);
     const [status, setStatus] = useState("");
         
-    // Handle input change
     const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({
@@ -28,7 +26,6 @@ export default function Contact() {
         });
     };
 
-    // Validate inputs
     const validate = () => {
         if (!formData.name || !formData.email || !formData.message) {
         return "Please fill in all fields."; }
@@ -39,8 +36,7 @@ export default function Contact() {
             }
                 return "";
             };
-            
-    // Submit form
+
     const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
       const error = validate();
@@ -135,7 +131,6 @@ export default function Contact() {
                 >
                   {loading ? "Sending..." : "Send Message"}
                 </Button>
-
               </Form>
 
               {status && <p className="mt-3 text-center status-msg">{status}</p>}
