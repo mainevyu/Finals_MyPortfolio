@@ -138,7 +138,7 @@ export default function Contact() {
 
               </Form>
 
-              {status && <p className="mt-3 text-center">{status}</p>}
+              {status && <p className="mt-3 text-center status-msg">{status}</p>}
             </div>
 
           </Container>

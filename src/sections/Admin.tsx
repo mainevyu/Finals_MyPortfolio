@@ -27,7 +27,7 @@ function Admin({ onBack }: Props) {
   const login = () => {
     if (password === ADMIN_PASS) {
       setAuthorized(true);
-      localStorage.setItem("admin", "true"); 
+      localStorage.setItem("admin", "true");
     } else {
       alert("Wrong password");
     }
@@ -56,27 +56,24 @@ function Admin({ onBack }: Props) {
   };
 
   const handleBack = () => {
-    localStorage.removeItem("admin"); 
+    localStorage.removeItem("admin");
     onBack();
   };
 
+  // --- LOGIN VIEW ---
   if (!authorized) {
     return (
-      <div className="section">
-        <div className="contact-card text-center">
-          <h3 className="mb-3" style={{ color: "#25170b" }}>
-            Admin Access
-          </h3>
-
+      <div className="section-fit">
+        <div className="admin-login-box">
+          <h3>Admin Access</h3>
           <input
             type="password"
             placeholder="Enter password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="form-control my-3"
+            className="admin-input"
           />
-
-          <button onClick={login} className="btn w-100" style={{color: "#f5f3ef"}}>
+          <button onClick={login} className="btn-navy w-100">
             Login
           </button>
         </div>
@@ -84,41 +81,50 @@ function Admin({ onBack }: Props) {
     );
   }
 
+  // --- DASHBOARD VIEW ---
   return (
-    <div className="section">
-      <button onClick={handleBack} className="btn mb-3 w-40" style={{color: "#f5f3ef"}}>
-        Back to Home
-      </button>
+    <div className="dashboard-container">
+      <div className="container">
+        {/* Top Navigation */}
+        <div className="d-flex justify-content-between align-items-center mb-5">
+          <button onClick={handleBack} className="btn-back">
+            Back to Home
+          </button>
+        </div>
 
-      <h2 className="text-center mb-4" style={{ color: "#25170b" }}>
-        Admin Dashboard
-      </h2>
+        <h2 className="header-title text-center mb-5">Admin Dashboard</h2>
 
-      <div style={{ maxWidth: "900px", margin: "auto" }}>
-        {messages.length === 0 && (
-          <p className="text-center" style={{ color: "#25170b" }}>
-            No messages yet.
-          </p>
-        )}
+        <div className="messages-wrapper">
+          {messages.length === 0 ? (
+            <div className="text-center py-5">
+              <p style={{ color: "#25170b", opacity: 0.6 }}>No messages yet.</p>
+            </div>
+          ) : (
+            messages.map((m) => (
+              <div key={m._id} className="admin-card">
+                <div className="d-flex justify-content-between align-items-start">
+                  <div>
+                    <strong>{m.name}</strong>
+                    <span className="email-tag">{m.email}</span>
+                  </div>
+                </div>
 
-        {messages.map((m) => (
-          <div key={m._id} className="admin-card">
-            <p><strong>{m.name}</strong></p>
-            <p>{m.email}</p>
-            <p>{m.message}</p>
+                <p className="admin-message-text">{m.message}</p>
 
-            <button
-              onClick={() => {
-                if (window.confirm("Delete this message?")) {
-                  deleteMessage(m._id);
-                }
-              }}
-              className="btn btn-sm" style={{color: "#f5f3ef"}}
-            >
-              Delete
-            </button>
-          </div>
-        ))}
+                <button
+                  onClick={() => {
+                    if (window.confirm("Delete this message?")) {
+                      deleteMessage(m._id);
+                    }
+                  }}
+                  className="btn-delete"
+                >
+                  Delete Message
+                </button>
+              </div>
+            ))
+          )}
+        </div>
       </div>
     </div>
   );
